@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 
 
+
+
 function click(e) {
 	chrome.tabs.executeScript(null, { file: "jquery-3.1.1.min.js" , allFrames: true });
 	chrome.tabs.executeScript(null, { file: "typed.min.js" });
