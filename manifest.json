@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Getting started example",
+  "name": "Autofill plugin",
   "description": "This extension shows a Google Image search result for the current page",
   "version": "1.0",
   "browser_action": {
@@ -10,5 +10,21 @@
   "permissions": [
 	"activeTab",
 	"https://ajax.googleapis.com/"
-  ]
+  ],
+
+  "commands": {
+	"run-autofill": {
+	  "suggested_key": {
+		"default": "Alt+Shift+R"
+	  },
+	  "description": "Autofills"
+	}
+  },
+
+  "background": {
+	"scripts": [
+	  "background.js"
+	]
+  }
+
 }
