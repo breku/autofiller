@@ -35,7 +35,11 @@ var midMap =
 	        "values": ["ABI410622","AGM145394","AKW266309"]
 	    },
 	    {
-            "names": ["nip"],
+	        "names": ["kwota","kredyt","liczba","dochod","przychod","amortyzacja","wartosc","rata"],
+	        "values": ["100","1","0","20","4000","10000","100000"]
+	    },
+	    {
+            "names": ["nip","page4.GesComplexComponent1.GesTextField2"],
             "values": ["7630899425"]
         },
 	    {
@@ -51,12 +55,16 @@ var midMap =
             "values": ["+48","123-456-789","123456789"]
         },
 		{
-		 "names": ["mail","page3.GesComplexComponent6.GesTextField4"],
-		 "values": ["a@a.pl"]
+			 "names": ["mail","page3.GesComplexComponent6.GesTextField4"],
+			 "values": ["a@a.pl"]
 		},
         {
-         "names": ["kodpocztowy","postal","kod_pocztowy"],
-         "values": ["78-888","88123","11-222"]
+	         "names": ["kodpocztowy","postal","kod_pocztowy"],
+	         "values": ["78-888","88123","11-222"]
+        },
+		{
+	         "names": ["wiek","doswiadczenie"],
+	         "values": ["1","10","20","40","70","90"]
         }
 	];
 
@@ -103,8 +111,14 @@ function fillElementSelect(chosenDiv) {
     $(firstOption).attr('selected', 'selected');
     select.val(firstOption.value);
 
-    var selectText = $(chosenDiv).find(".iew-ComboboxText")[0];
-    selectText.innerHTML = $(firstOption).text();
+    var selectTextDiv = $(chosenDiv).find(".iew-ComboboxText")[0];
+    if(selectTextDiv){
+        selectTextDiv.innerHTML = $(firstOption).text();
+    }else{
+        selectTextInput = $(chosenDiv).find("input")[0];
+        $(selectTextInput).val($(firstOption).text());
+
+    }
     invokeEventForCombobox(select, "change");
     $(select).trigger('chosen:updated');
 }
