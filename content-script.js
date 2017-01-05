@@ -12,12 +12,32 @@ var midMap =
 		},
 		{
 	        "names": ["imie","name"],
-	        "values": ["Jan","Kuba","Jacek"]
+	        "values": ["Jan","Kuba","Jacek", "Maly Jan", "Zbychu"]
 	    },
+	    {
+            "names": ["nazwisko"],
+            "values": ["Kowalski"]
+        },
+        {
+            "names": ["ulica","street"],
+            "values": ["Naramowicka","Serbska"]
+        },
+        {
+            "names": ["miejscowosc","city","miejsce"],
+            "values": ["Warszawa","Szczecin"]
+        },
+        {
+            "names": ["nrmieszkania","numermieszkania","numer_mieszkania","nrdomu","numerdomu","dom","mieszkanie","building","flat"],
+            "values": ["1","22"]
+        },
 	    {
 	        "names": ["seriainumer","numerdowodu","numer_dowodu", "dowod", "idcard"],
 	        "values": ["ABI410622","AGM145394","AKW266309"]
 	    },
+	    {
+            "names": ["nip"],
+            "values": ["7630899425"]
+        },
 	    {
 	        "names": ["rachunek","rachunku","account"],
 	        "values": ["PL97109003813413","RO17409318005209","RO522225089696946566608356730556","3696816720","PL24708197578827"]
@@ -31,7 +51,7 @@ var midMap =
             "values": ["+48","123-456-789","123456789"]
         },
 		{
-		 "names": ["mail"],
+		 "names": ["mail","page3.GesComplexComponent6.GesTextField4"],
 		 "values": ["a@a.pl"]
 		},
         {
@@ -40,7 +60,7 @@ var midMap =
         }
 	];
 
-var randomValues = ["aaa","123","a@a.pl"];
+var randomValues = ["aaa","123"];
 
 var invokeEvent = function(element, eventType) {
 	$(element).focus();
@@ -66,9 +86,30 @@ function fillValueForTextfield(textField, textFieldValues, valueCounter) {
     	    if($(textField).hasClass('iew-Error')){
     	        fillValueForTextfield(textField, textFieldValues, valueCounter+1);
     	    }
-    	},200);
+    	},300);
 	}
 }
+
+var invokeEventForCombobox = function(element, eventType) {
+    var changeEvent = document.createEvent("HTMLEvents");
+    changeEvent.initEvent(eventType, true, true);
+    document.getElementsByName(element.attr("name"))[0].dispatchEvent(changeEvent);
+}
+
+function fillElementSelect(chosenDiv) {
+
+	var select = $($(chosenDiv).parent()).children(':first');
+    var firstOption = $(select).find('option').eq(1)[0];
+    $(firstOption).attr('selected', 'selected');
+    select.val(firstOption.value);
+
+    var selectText = $(chosenDiv).find(".iew-ComboboxText")[0];
+    selectText.innerHTML = $(firstOption).text();
+    invokeEventForCombobox(select, "change");
+    $(select).trigger('chosen:updated');
+}
+
+
 
 function fillElementRadio(radioGroup) {
 	var radios = $(radioGroup).find('input');
@@ -87,7 +128,7 @@ function fillElementCheckBox(checkbox) {
 function filledWithPredefinedValues(textField, mid){
 	for(var index in midMap){
 		for (var j= 0;  j< midMap[index].names.length ; j++) {
-			var possibleMidMatch = midMap[index].names[j]
+			var possibleMidMatch = midMap[index].names[j].toLowerCase();
 			if(mid.indexOf(possibleMidMatch) != -1 ){
 				fillValueForTextfield(textField,midMap[index].values, 0);
 				return true;
@@ -123,6 +164,14 @@ function fillVisibleCheckboxes(){
 	}
 }
 
+function fillVisibleComboboxes(){
+	var comboboxes = $('.iew-PageProxyPanelShown div:visible.chosen-container');
+	for (var i = 0, len = comboboxes.length; i < len; i++) {
+		fillElementSelect(comboboxes[i])
+	}
+}
+
 fillVisibleTextfields();
 fillVisibleRadioGroups();
 fillVisibleCheckboxes();
+fillVisibleComboboxes();
