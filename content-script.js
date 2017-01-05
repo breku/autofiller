@@ -76,6 +76,14 @@ function fillElementRadio(radioGroup) {
     invokeEvent(radioGroup, "change");
 }
 
+function fillElementCheckBox(checkbox) {
+    if(!checkbox.checked){
+        $(checkbox).click();
+        invokeEvent(checkbox, "change");
+    }
+}
+
+
 function filledWithPredefinedValues(textField, mid){
 	for(var index in midMap){
 		for (var j= 0;  j< midMap[index].names.length ; j++) {
@@ -106,8 +114,15 @@ function fillVisibleRadioGroups(){
 	for (var i = 0, len = radioGroups.length; i < len; i++) {
 		fillElementRadio(radioGroups[i])
 	}
+}
 
+function fillVisibleCheckboxes(){
+	var checkboxes = $('.iew-PageProxyPanelShown input[type=checkbox]:visible');
+	for (var i = 0, len = checkboxes.length; i < len; i++) {
+		fillElementCheckBox(checkboxes[i])
+	}
 }
 
 fillVisibleTextfields();
 fillVisibleRadioGroups();
+fillVisibleCheckboxes();
