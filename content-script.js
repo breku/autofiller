@@ -19,7 +19,7 @@ var midMap =
 	        "values": ["ABI410622","AGM145394","AKW266309"]
 	    },
 	    {
-	        "names": ["rachunek","numerrachunku","numer_rachunku","account"],
+	        "names": ["rachunek","rachunku","account"],
 	        "values": ["PL97109003813413","RO17409318005209","RO522225089696946566608356730556","3696816720","PL24708197578827"]
 	    },
 	    {
@@ -68,7 +68,12 @@ function fillValueForTextfield(textField, textFieldValues, valueCounter) {
     	    }
     	},200);
 	}
+}
 
+function fillElementRadio(radioGroup) {
+	var radios = $(radioGroup).find('input');
+	radios[0].click();
+    invokeEvent(radioGroup, "change");
 }
 
 function filledWithPredefinedValues(textField, mid){
@@ -87,7 +92,6 @@ function filledWithPredefinedValues(textField, mid){
 
 function fillVisibleTextfields(){
 	var textFields = $('.iew-PageProxyPanelShown input:enabled.gwt-TextBox.iew-TextField');
-	log('Found ' + textFields.length + ' visible and enabled textfields.')
 	for (var i = 0, len = textFields.length; i < len; i++) {
 		var textField = textFields[i];
 		var mid = $(textField).attr('mid').toLowerCase();
@@ -97,5 +101,13 @@ function fillVisibleTextfields(){
 	}
 }
 
+function fillVisibleRadioGroups(){
+	var radioGroups = $('.iew-PageProxyPanelShown fieldset:visible.iew-RadioButtonGroup');
+	for (var i = 0, len = radioGroups.length; i < len; i++) {
+		fillElementRadio(radioGroups[i])
+	}
+
+}
 
 fillVisibleTextfields();
+fillVisibleRadioGroups();
