@@ -3,189 +3,80 @@ function log(text){
 	console.log(text);
 }
 
+function getUrlParameter(sParam) {
+	var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+		sURLVariables = sPageURL.split('&'),
+		sParameterName,
+		i;
 
-var midMap =
-	[
-		{
-			"names": ["pesel"],
-			"values": ["96080701155","478585036"]
-		},
-		{
-	        "names": ["imie","name"],
-	        "values": ["Jan","Kuba","Jacek", "Maly Jan", "Zbychu"]
-	    },
-	    {
-            "names": ["nazwisko"],
-            "values": ["Kowalski"]
-        },
-        {
-            "names": ["ulica","street"],
-            "values": ["Naramowicka","Serbska"]
-        },
-        {
-            "names": ["miejscowosc","city","miejsce"],
-            "values": ["Warszawa","Szczecin"]
-        },
-        {
-            "names": ["nrmieszkania","numermieszkania","numer_mieszkania","nrdomu","numerdomu","dom","mieszkanie","building","flat"],
-            "values": ["1","22"]
-        },
-	    {
-	        "names": ["seriainumer","numerdowodu","numer_dowodu", "dowod", "idcard"],
-	        "values": ["ABI410622","AGM145394","AKW266309"]
-	    },
-	    {
-	        "names": ["kwota","kredyt","liczba","dochod","przychod","amortyzacja","wartosc","rata"],
-	        "values": ["100","1","0","20","4000","10000","100000"]
-	    },
-	    {
-            "names": ["nip","page4.GesComplexComponent1.GesTextField2"],
-            "values": ["7630899425"]
-        },
-	    {
-	        "names": ["rachunek","rachunku","account"],
-	        "values": ["PL97109003813413","RO17409318005209","RO522225089696946566608356730556","3696816720","PL24708197578827"]
-	    },
-	    {
-	        "names": ["regon"],
-	        "values": ["698359625","09207986618702","930844867"]
-	    },
-        {
-            "names": ["phone","telephone","telefon"],
-            "values": ["+48","123-456-789","123456789"]
-        },
-		{
-			 "names": ["mail","page3.GesComplexComponent6.GesTextField4"],
-			 "values": ["a@a.pl"]
-		},
-        {
-	         "names": ["kodpocztowy","postal","kod_pocztowy"],
-	         "values": ["78-888","88123","11-222"]
-        },
-		{
-	         "names": ["wiek","doswiadczenie"],
-	         "values": ["1","10","20","40","70","90"]
-        }
-	];
+	for (i = 0; i < sURLVariables.length; i++) {
+		sParameterName = sURLVariables[i].split('=');
 
-var randomValues = ["aaa","123"];
-
-var invokeEvent = function(element, eventType) {
-	$(element).focus();
-    var changeEvent = document.createEvent("HTMLEvents");
-    changeEvent.initEvent(eventType, true, true);
-    element.dispatchEvent(changeEvent);
-    $(element).blur();
-    $(element).focus();
-    $(element).blur();
-}
-
-function validToFill(textField){
-	return !$(textField).next().hasClass('iew-CorrectIcon');
-}
-
-
-function fillValueForTextfield(textField, textFieldValues, valueCounter) {
-
-	if(valueCounter < textFieldValues.length && validToFill(textField)){
-		$(textField).val(textFieldValues[valueCounter]);
-    	invokeEvent(textField,"change");
-    	setTimeout(function(){
-    	    if($(textField).hasClass('iew-Error')){
-    	        fillValueForTextfield(textField, textFieldValues, valueCounter+1);
-    	    }
-    	},300);
-	}
-}
-
-var invokeEventForCombobox = function(element, eventType) {
-    var changeEvent = document.createEvent("HTMLEvents");
-    changeEvent.initEvent(eventType, true, true);
-    document.getElementsByName(element.attr("name"))[0].dispatchEvent(changeEvent);
-}
-
-function fillElementSelect(chosenDiv) {
-
-	var select = $($(chosenDiv).parent()).children(':first');
-    var firstOption = $(select).find('option').eq(1)[0];
-    $(firstOption).attr('selected', 'selected');
-    select.val(firstOption.value);
-
-    var selectTextDiv = $(chosenDiv).find(".iew-ComboboxText")[0];
-    if(selectTextDiv){
-        selectTextDiv.innerHTML = $(firstOption).text();
-    }else{
-        selectTextInput = $(chosenDiv).find("input")[0];
-        $(selectTextInput).val($(firstOption).text());
-
-    }
-    invokeEventForCombobox(select, "change");
-    $(select).trigger('chosen:updated');
-}
-
-
-
-function fillElementRadio(radioGroup) {
-	var radios = $(radioGroup).find('input');
-	radios[0].click();
-    invokeEvent(radioGroup, "change");
-}
-
-function fillElementCheckBox(checkbox) {
-    if(!checkbox.checked){
-        $(checkbox).click();
-        invokeEvent(checkbox, "change");
-    }
-}
-
-
-function filledWithPredefinedValues(textField, mid){
-	for(var index in midMap){
-		for (var j= 0;  j< midMap[index].names.length ; j++) {
-			var possibleMidMatch = midMap[index].names[j].toLowerCase();
-			if(mid.indexOf(possibleMidMatch) != -1 ){
-				fillValueForTextfield(textField,midMap[index].values, 0);
-				return true;
-			}
-		}
-	}
-	return false;
-
-}
-
-function fillVisibleTextfields(){
-	var textFields = $('.iew-PageProxyPanelShown input:enabled.gwt-TextBox.iew-TextField');
-	for (var i = 0, len = textFields.length; i < len; i++) {
-		var textField = textFields[i];
-		var mid = $(textField).attr('mid').toLowerCase();
-		if(!filledWithPredefinedValues(textField,mid)){
-			fillValueForTextfield(textField,randomValues, 0);
+		if (sParameterName[0] === sParam) {
+			return sParameterName[1] === undefined ? true : sParameterName[1];
 		}
 	}
 }
 
-function fillVisibleRadioGroups(){
-	var radioGroups = $('.iew-PageProxyPanelShown fieldset:visible.iew-RadioButtonGroup');
-	for (var i = 0, len = radioGroups.length; i < len; i++) {
-		fillElementRadio(radioGroups[i])
-	}
-}
 
-function fillVisibleCheckboxes(){
-	var checkboxes = $('.iew-PageProxyPanelShown input[type=checkbox]:visible');
-	for (var i = 0, len = checkboxes.length; i < len; i++) {
-		fillElementCheckBox(checkboxes[i])
-	}
-}
+var stkn = getUrlParameter('stkn');
 
-function fillVisibleComboboxes(){
-	var comboboxes = $('.iew-PageProxyPanelShown div:visible.chosen-container');
-	for (var i = 0, len = comboboxes.length; i < len; i++) {
-		fillElementSelect(comboboxes[i])
-	}
-}
+var widgets = [
+	{"name":"GesComplexComponent1.GesComplexComponent1.GesTileGroup1", "value":"1"},
+	{"name":"GesComplexComponent1.GesComplexComponent1.GesTileGroup2", "value":"2"},
+	{"name":"GesComplexComponent1.GesComplexComponent1.GesTileGroup3", "value":"1"},
+	{"name":"GesComplexComponent1.GesComplexComponent1.GesTileGroup4", "value":"2"},
 
-fillVisibleTextfields();
-fillVisibleRadioGroups();
-fillVisibleCheckboxes();
-fillVisibleComboboxes();
+	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField1", "value":"Kuba"},
+	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField2", "value":"Nazwisko"},
+	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField3", "value":"Nazwisko Rodowe"},
+	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField5", "value":"Imie Matki"},
+	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField4", "value":"Nazwisko panieńskie matki"},
+	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField6", "value":"02282102838"},
+	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField7", "value":"Miejsce urodzenia"},
+	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField8", "value":"AEI670249"},
+	{"name":"GesComplexComponent2.GesComplexComponent1.GesDatePicker1", "value":"1506031200000"},
+
+	{"name":"GesComplexComponent3.GesComplexComponent1.GesTextField1", "value":"+48 123 123 123"},
+	{"name":"GesComplexComponent3.GesComplexComponent1.GesTextField2", "value":"a@a.pl"},
+	{"name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesCombobox1", "value":"AL"},
+	{"name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesTextField1", "value":"Ulica"},
+	{"name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesTextField2", "value":"2"},
+	{"name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesTextField3", "value":"3"},
+	{"name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesTextField4", "value":"23-423"},
+	{"name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesTextField5", "value":"Miejscowość"},
+
+	{"name":"GesComplexComponent4.GesComplexComponent1.GesTileGroup1", "value":"2"},
+	{"name":"GesComplexComponent4.GesComplexComponent1.GesTileGroup3", "value":"2"},
+
+	{"name":"GesComplexComponent4.GesComplexComponent2.GesTileGroup1", "value":"1"},
+	{"name":"GesComplexComponent4.GesComplexComponent2.GesTileGroup2", "value":"2"},
+
+	{"name":"GesComplexComponent4.GesComplexComponent3.GesTileGroup1", "value":"2"},
+	{"name":"GesComplexComponent4.GesComplexComponent3.GesTileGroup2", "value":"2"},
+
+
+
+	]
+
+var jsonObject = {};
+jsonObject["formNumber"] = stkn;
+
+
+$.each(widgets,function (i,element) {
+	jsonObject["widgetChangedModel"] = {"id":element["name"],"changed":{"value":element["value"]}};
+
+	var className = '.row-with-'+ element["name"].replace(/\./g,"_");
+	var widget = $(className);
+	if(widget.length != 0){
+		$.ajax( "/form/api/componentService/componentValueChanged",{
+			data: JSON.stringify(jsonObject),
+			contentType : 'application/json',
+			type : 'POST',
+		});
+	}
+})
+
+
+
+location.reload();
