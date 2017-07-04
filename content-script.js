@@ -32,7 +32,7 @@ var widgets = [
 	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField3", "value":"Nazwisko Rodowe"},
 	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField5", "value":"Imie Matki"},
 	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField4", "value":"Nazwisko panieńskie matki"},
-	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField6", "value":"02282102838"},
+	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField6", "value":"31010817377"},
 	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField7", "value":"Miejsce urodzenia"},
 	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField8", "value":"AEI670249"},
 	{"name":"GesComplexComponent2.GesComplexComponent1.GesDatePicker1", "value":"1506031200000"},
