@@ -70,7 +70,7 @@ var widgets = [
 	{"name":"GesComplexComponent4.GesComplexComponent1.GesTileGroup3", "value":"2"},
 
 	{"name":"GesComplexComponent4.GesComplexComponent2.GesTileGroup1", "value":"1"},
-	{"name":"GesComplexComponent4.GesComplexComponent2.GesTileGroup2", "value":"2"},
+	{"name":"GesComplexComponent4.GesComplexComponent2.GesComplexComponent2.GesTileGroup1", "value":"2"},
 
 	{"name":"GesComplexComponent4.GesComplexComponent3.GesTileGroup1", "value":"2"},
 	{"name":"GesComplexComponent4.GesComplexComponent3.GesTileGroup2", "value":"2"},
