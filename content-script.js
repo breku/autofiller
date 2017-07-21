@@ -47,7 +47,7 @@ var widgets = [
 	{"name":"GesComplexComponent2.GesComplexComponent2.GesTextField8", "value":"ARH366027"},
 	{"name":"GesComplexComponent2.GesComplexComponent2.GesDatePicker1", "value":"1506031200000"},
 
-	{"name":"GesComplexComponent3.GesComplexComponent1.GesTextField1", "value":"+48 123 123 123"},
+	{"name":"GesComplexComponent3.GesComplexComponent1.GesTextField1", "value":"123-123-123"},
 	{"name":"GesComplexComponent3.GesComplexComponent1.GesTextField2", "value":"a@a.pl"},
 	{"name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesCombobox1", "value":"AL"},
 	{"name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesTextField1", "value":"Ulica"},
@@ -56,7 +56,7 @@ var widgets = [
 	{"name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesTextField4", "value":"23-423"},
 	{"name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesTextField5", "value":"Miejscowość"},
 
-	{"name":"GesComplexComponent3.GesComplexComponent2.GesTextField1", "value":"+48 999 999 999"},
+	{"name":"GesComplexComponent3.GesComplexComponent2.GesTextField1", "value":"123-123-123"},
 	{"name":"GesComplexComponent3.GesComplexComponent2.GesTextField2", "value":"b@b.pl"},
 	{"name":"GesComplexComponent3.GesComplexComponent2.GesComplexComponent3.GesCombobox1", "value":"PL"},
 	{"name":"GesComplexComponent3.GesComplexComponent2.GesComplexComponent3.GesTextField1", "value":"Ulica2"},
