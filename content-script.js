@@ -36,6 +36,7 @@ var widgets = [
 	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField7", "value":"Miejsce urodzenia"},
 	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField8", "value":"AEI670249"},
 	{"name":"GesComplexComponent2.GesComplexComponent1.GesDatePicker1", "value":"1506031200000"},
+	{"name":"GesComplexComponent2.GesComplexComponent1.GesTileGroup1", "value":"2"},
 
 	{"name":"GesComplexComponent2.GesComplexComponent2.GesTextField1", "value":"Kuba A"},
 	{"name":"GesComplexComponent2.GesComplexComponent2.GesTextField2", "value":"Nazwisko A"},
