@@ -35,7 +35,7 @@ var widgets = [
 	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField6", "value":"31010817377"},
 	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField7", "value":"Miejsce urodzenia"},
 	{"name":"GesComplexComponent2.GesComplexComponent1.GesTextField8", "value":"AEI670249"},
-	{"name":"GesComplexComponent2.GesComplexComponent1.GesDatePicker1", "value":"1506031200000"},
+	{"name":"GesComplexComponent2.GesComplexComponent1.GesDatePicker1", "value":"1600812000000"},
 	{"name":"GesComplexComponent2.GesComplexComponent1.GesTileGroup1", "value":"2"},
 
 	{"name":"GesComplexComponent2.GesComplexComponent2.GesTextField1", "value":"Kuba A"},
@@ -46,7 +46,7 @@ var widgets = [
 	{"name":"GesComplexComponent2.GesComplexComponent2.GesTextField6", "value":"08240603926"},
 	{"name":"GesComplexComponent2.GesComplexComponent2.GesTextField7", "value":"Miejsce urodzenia A"},
 	{"name":"GesComplexComponent2.GesComplexComponent2.GesTextField8", "value":"ARH366027"},
-	{"name":"GesComplexComponent2.GesComplexComponent2.GesDatePicker1", "value":"1506031200000"},
+	{"name":"GesComplexComponent2.GesComplexComponent2.GesDatePicker1", "value":"1600812000000"},
 
 	{"name":"GesComplexComponent3.GesComplexComponent1.GesTextField1", "value":"123-123-123"},
 	{"name":"GesComplexComponent3.GesComplexComponent1.GesTextField2", "value":"a@a.pl"},
