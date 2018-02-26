@@ -200,5 +200,77 @@ var forms =[
             },
 
         ]
+    }, {
+        "formName": "RB_MSP", "widgets": [
+            {
+                "name":"GesComplexComponent2.GesComplexComponent1.GesTextField3",
+                "value":"Nazwa firmy Testowa"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent1.GesTextField4",
+                "value":"Skrócona nazwa firmy"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent1.GesTileGroup1",
+                "value":"1"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent1.GesTileGroup2",
+                "value":"1"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent1.GesCombobox1",
+                "value":"2"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent2.GesTextField1",
+                "value":"123-789-999"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent2.GesTextField3",
+                "value":"adresfirmowy@email.com"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent3.GesComplexComponent1.GesTextField1",
+                "value":"Puławska"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent3.GesComplexComponent1.GesTextField2",
+                "value":"11"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent3.GesComplexComponent1.GesTextField3",
+                "value":"1"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent3.GesComplexComponent1.GesTextField4",
+                "value":"11-222"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent3.GesComplexComponent1.GesTextField5",
+                "value":"Warszawa"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent2.GesTextField1",
+                "value":"444-444-666"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent2.GesTextField2",
+                "value":"adres-mail-wlasciciela@firmy.com"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent4.GesTileGroup1",
+                "value":"2"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent3.GesTileGroup1",
+                "value":"oddzial"
+            },
+
+
+
+
+
+        ]
     }
 ]
