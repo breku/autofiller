@@ -1,6 +1,10 @@
 class Autofiller {
 
 
+    constructor(restClient) {
+        this.restClient = restClient;
+    }
+
     callComponentUpdate(jsonObject){
         var url = location.port == 4000 ? "/api/componentService/componentValueChanged" : "/form/api/componentService/componentValueChanged";
         $.ajax(url, {
@@ -26,7 +30,7 @@ class Autofiller {
             var widget = this.getWidget(element);
             if (widget.length !== 0) {
                 var jsonObject = this.createJsonObject(stkn, element);
-                this.callComponentUpdate(jsonObject);
+                this.restClient.callComponentUpdate(jsonObject);
             }
         }
 

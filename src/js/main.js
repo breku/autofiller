@@ -1,24 +1,40 @@
 
 class Main {
 
-    constructor(browserUtil, autofiller) {
+    constructor(browserUtil, autofiller, restClient) {
         this.browserUtil = browserUtil;
         this.autofiller = autofiller;
+        this.restClient = restClient;
     }
 
     main() {
         var stkn = this.browserUtil.getUrlParameter('stkn');
-        var formName = this.browserUtil.getUrlParameter('formName');
+        var formName = this.browserUtil.getFormName();
 
         if (stkn != null) {
-            var form = forms.find(x => x["formName"] === formName);
-            if(form){
-                this.autofiller.fillForm(stkn, form);
-            }
+            this.fillForm(stkn, formName);
+        } else {
+            this.initializeStkn(formName)
+        }
+    }
+
+    fillForm(stkn, formName) {
+        var form = forms.find(x => x["formName"] === formName);
+        if (form) {
+            this.autofiller.fillForm(stkn, form);
             location.reload();
         } else {
-            console.log("Skip filling form due to empty stkn url parameter")
+            console.log("No form found")
         }
+    }
+
+    initializeStkn(formName) {
+        var that = this;
+        restClient.callGetFormTemplate(formName, function (data) {
+            var stkn = data['changePageData']['members']['formModel']['sessionToken']['token'];
+            that.browserUtil.insertParam('stkn',stkn);
+        });
+
     }
 }
 
