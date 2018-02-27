@@ -5,13 +5,6 @@ class Autofiller {
         this.restClient = restClient;
     }
 
-    callComponentUpdate(jsonObject){
-        var url = location.port == 4000 ? "/api/componentService/componentValueChanged" : "/form/api/componentService/componentValueChanged";
-        $.ajax(url, {
-            data: JSON.stringify(jsonObject), contentType: 'application/json', type: 'POST',
-        });
-    }
-
     getWidget(element) {
         var className = '.row-with-' + element["name"].replace(/\./g, "_");
         return $(className);
