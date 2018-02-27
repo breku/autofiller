@@ -3,6 +3,7 @@ function click(e) {
     chrome.tabs.executeScript(null, { file: "src/js/browser-util.js" });
     chrome.tabs.executeScript(null, { file: "src/js/forms.js" });
     chrome.tabs.executeScript(null, { file: "src/js/autofiller.js" });
+    chrome.tabs.executeScript(null, {file: "src/js/rest-client.js"});
     chrome.tabs.executeScript(null, { file: "src/js/main.js" });
     chrome.tabs.executeScript(null, { file: "src/js/entrypoint.js" });
 
