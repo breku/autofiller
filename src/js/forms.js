@@ -266,6 +266,26 @@ var forms =[
                 "name":"GesComplexComponent3.GesComplexComponent3.GesTileGroup1",
                 "value":"oddzial"
             },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent3.GesComplexComponent2.GesTextField1",
+                "value":"Ulica korespondencyjna firmy"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent3.GesComplexComponent2.GesTextField2",
+                "value":"99"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent3.GesComplexComponent2.GesTextField3",
+                "value":"9"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent3.GesComplexComponent2.GesTextField4",
+                "value":"99-888"
+            },
+            {
+                "name":"GesComplexComponent2.GesComplexComponent3.GesComplexComponent2.GesTextField5",
+                "value":"Łódź"
+            },
 
 
 
