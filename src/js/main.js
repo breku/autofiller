@@ -9,6 +9,10 @@ class Main {
 
     main() {
         var stkn = this.browserUtil.getUrlParameter('stkn');
+        if(!stkn){
+            stkn = this.browserUtil.getUrlParameterAfterHash('stkn');
+        }
+
         var formName = this.browserUtil.getFormName();
 
         if (stkn != null) {

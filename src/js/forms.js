@@ -285,12 +285,20 @@ var forms =[
             {
                 "name":"GesComplexComponent2.GesComplexComponent3.GesComplexComponent2.GesTextField5",
                 "value":"Łódź"
+            }
+        ]
+    },
+
+    {
+        "formName": "kpf", "widgets": [
+            {
+                "name":"GesComplexComponent1.GesComplexComponent1.GesCombobox1",
+                "value":"kontobasicfirmowe"
             },
-
-
-
-
-
         ]
     }
+
+
+
+
 ]

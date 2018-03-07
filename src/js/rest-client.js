@@ -1,14 +1,24 @@
-class RestClient{
+class RestClient {
 
-    callComponentUpdate(jsonObject){
-        var url = location.port == 4000 ? "/api/componentService/componentValueChanged" : "/form/api/componentService/componentValueChanged";
+    callComponentUpdate(jsonObject) {
+        var url = this.getComponentUpdateUrl();
         $.ajax(url, {
             data: JSON.stringify(jsonObject), contentType: 'application/json', type: 'POST',
         });
     }
 
+    getComponentUpdateUrl() {
+        if (location.host.includes('multichannel')) {
+            return '/multi/webforms/api/multichannel-webforms-rest/componentService/componentValueChanged';
+        } else if (location.port == 4000) {
+            return '/api/componentService/componentValueChanged';
+        } else {
+            return '/form/api/componentService/componentValueChanged';
+        }
+    }
 
-    callGetFormTemplate(formId, callback){
+
+    callGetFormTemplate(formId, callback) {
         var url = location.port == 4000 ? "/api/formService/getFormTemplate" : "/form/api/formService/getFormTemplate";
         var jsonObject = {};
         jsonObject["formId"] = formId;
@@ -21,8 +31,7 @@ class RestClient{
             "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36",
         };
         $.ajax(url, {
-            data: JSON.stringify(jsonObject), contentType: 'application/json', type: 'POST',
-            success: function (data) {
+            data: JSON.stringify(jsonObject), contentType: 'application/json', type: 'POST', success: function (data) {
                 callback(data);
             }
         });
