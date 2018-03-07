@@ -295,6 +295,78 @@ var forms =[
                 "name":"GesComplexComponent1.GesComplexComponent1.GesCombobox1",
                 "value":"kontobasicfirmowe"
             },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent5.GesTextField1",
+                "value":"Adam"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent5.GesTextField6",
+                "value":"Dupa"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent5.GesTextField2",
+                "value":"Bomba"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent5.GesTextField4",
+                "value":"74042011304"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent5.GesTextField5",
+                "value":"AII858124"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent5.GesDatePicker3",
+                "value":"1519945200000"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent5.GesCheckbox1",
+                "value":"true"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesTextField1",
+                "value":"Puławska"
+            },
+
+            {
+                "name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesTextField2",
+                "value":"11"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesTextField4",
+                "value":"11-222"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent1.GesComplexComponent1.GesTextField5",
+                "value":"Warszawa"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent4.GesTextField2",
+                "value":"111222333"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent4.GesTextField3",
+                "value":"a@a.pl"
+            },
+            {
+                "name":"GesComplexComponent3.GesComplexComponent4.GesTextField4",
+                "value":"a@a.pl"
+            },
+
+            {
+                "name":"GesComplexComponent4.GesComplexComponent1.GesTextField1",
+                "value":"Nazwa firmy1"
+            },
+
+            {
+                "name":"GesComplexComponent4.GesComplexComponent1.GesTextField2",
+                "value":"2127941790"
+            },
+            {
+                "name":"GesComplexComponent6.GesComplexComponent1.GesRadioGroup1",
+                "value":"nie"
+            },
+
         ]
     }
 
