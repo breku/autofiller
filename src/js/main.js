@@ -1,4 +1,3 @@
-
 class Main {
 
     constructor(browserUtil, autofiller, restClient) {
@@ -9,7 +8,7 @@ class Main {
 
     main() {
         var stkn = this.browserUtil.getUrlParameter('stkn');
-        if(!stkn){
+        if (!stkn) {
             stkn = this.browserUtil.getUrlParameterAfterHash('stkn');
         }
 
@@ -25,8 +24,9 @@ class Main {
     fillForm(stkn, formName) {
         var form = forms.find(x => x["formName"] === formName);
         if (form) {
-            this.autofiller.fillForm(stkn, form);
-            location.reload();
+            this.autofiller.fillForm(stkn, form, () => {
+                location.reload();
+            });
         } else {
             console.log("No form found")
         }
@@ -36,7 +36,7 @@ class Main {
         var that = this;
         restClient.callGetFormTemplate(formName, function (data) {
             var stkn = data['changePageData']['members']['formModel']['sessionToken']['token'];
-            that.browserUtil.insertParam('stkn',stkn);
+            that.browserUtil.insertParam('stkn', stkn);
         });
 
     }

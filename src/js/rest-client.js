@@ -1,9 +1,10 @@
 class RestClient {
 
-    callComponentUpdate(jsonObject) {
+    callComponentUpdate(jsonObject, callbackSuccess) {
         var url = this.getComponentUpdateUrl();
         $.ajax(url, {
             data: JSON.stringify(jsonObject), contentType: 'application/json', type: 'POST',
+            success: callbackSuccess
         });
     }
 
